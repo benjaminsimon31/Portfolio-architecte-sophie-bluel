@@ -1,3 +1,4 @@
+// récuperation des pièces depuis l'API
 const reponse = await fetch("http://localhost:5678/api/works");
 const filters = await reponse.json();
 
@@ -28,5 +29,4 @@ function genererFilters(filters){
             sectionGallery.appendChild(filtersElement);
         }
     }
-
 genererFilters(filters);

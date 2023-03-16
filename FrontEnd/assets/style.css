@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 
+*{
+	background-color: #fffef8;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -61,7 +65,6 @@ header {
 section {
 	margin: 50px 0
 }
-
 h1{
 	display: flex;
 	flex-direction: column;
@@ -70,14 +73,12 @@ h1{
 	font-weight: 800;
 	color: #B1663C
 }
-
 h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
 ;
 }
-
 h2{
 	font-family: 'Syne';
 	font-weight: 700;
@@ -88,16 +89,23 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
 }
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
-
 li:hover {
 	color: #B1663C;
 }
+
+nav li a{
+	text-decoration: none;
+}
+
+nav li a:visited{
+	color: black;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
@@ -110,21 +118,46 @@ li:hover {
 	margin: auto;
 	width: 80%;
 }
-
 #introduction article {
 	flex: 1
 }
 #introduction h2 {
 	margin-bottom: 1em;
 }
-
 #introduction p {
 	margin-bottom: 0.5em;
 }
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
+	/* margin-bottom: 1em; */
 }
+
+#portfolio{
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.filters{
+	display: flex;
+	justify-content: center;
+	gap: 10px;	
+}
+.filters button:hover{
+	background-color: #1D6154;
+	color: white;
+}
+
+button{ 
+	text-decoration: none;
+	background-color: #fffef8;
+	border-radius:25px  ;
+	border: 1px solid #1D6154; 
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+  }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -132,18 +165,15 @@ li:hover {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
-
 .gallery img {
 	width: 100%;
-
 }
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
-
 }
 #contact h2{
 	margin-bottom: 20px;
@@ -155,20 +185,19 @@ margin: auto;
 	flex-direction: column;
 }
 
-#contact input {
+#contact input, .log input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact label, .log input {
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-
 input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
@@ -179,10 +208,8 @@ input[type="submit"]{
 	text-align: center;
 	border-radius: 60px ;
 }
-
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
 }
-
