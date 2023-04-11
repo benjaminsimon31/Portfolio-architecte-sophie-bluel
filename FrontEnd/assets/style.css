@@ -3,10 +3,6 @@
    License: none (public domain)
 */
 
-*{
-	background-color: #fffef8;
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,47 +20,56 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	/* font: inherit; */
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
+	background-color: #FFFEF8;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
+
+/* Définition générale */
+
 body {
 	max-width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
-header {
-	display: flex;
-	justify-content: space-between;
-	margin: 50px 0
+
+a {
+	text-decoration: none;
+	color: #000000;
 }
-section {
-	margin: 50px 0
-}
+
 h1{
 	display: flex;
 	flex-direction: column;
@@ -73,90 +78,421 @@ h1{
 	font-weight: 800;
 	color: #B1663C
 }
+
 h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
 }
+
 h2{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
 }
+
+/* Définition du "MODE EDITION" et du Panel supérieur "Utilisateur authentifié" */
+
+.authentified-userpanel {
+	height: 60px;
+	justify-content: center;
+	align-items: center;
+	gap: 1%;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+
+/* SWITCH "editMode" */
+.edit-mode {
+	display: none;
+}
+/* ----------------- */
+
+.edit-mode i {
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+.button-post-changes {
+	background-color: #FFFFFF;
+	color: #000000;
+	height: 38px;
+	border-radius: 19px;
+	padding: 0 15px 0 15px;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: "Work Sans";
+}
+
+button {
+	background-color: #FFFEF8;
+	border: none;
+	font-family: "Work sans";
+	font-size: 14px;
+	padding: 10px 0 10px 0;
+}
+
+.edit-mode-introduction-figure {
+	width: 80%;
+	margin: auto;
+}
+
+.edit-mode-portfolio-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	gap: 2%;
+}
+
+.edit-mode-portfolio-title button {
+	margin: 0;
+}
+
+/* Définition de la MODALE */
+
+/* Style de base pour cacher la modale */
+.modal {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+ /* Style pour le contenu de la modale */
+
+ /* Switch Modal "Suppresion de projet" ou "Form Ajout de projet" */
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	box-sizing: border-box;
+	width: 630px;
+	height: 730px;
+	overflow: auto;
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 16px 20px 13px 20px;
+}
+
+.modal-content-form {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	box-sizing: border-box;
+	width: 630px;
+	height: 730px;
+	overflow: auto;
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 16px 20px 13px 20px;
+}
+/* ----------SWITCH----------- */
+
+/* Définition de la "Modale", "vu et suppression de projet" */
+
+.close-modal-button-container {
+	width: 100%;
+	text-align: end;
+}
+  
+.modal-gallery-container {
+	width: 75%;
+	text-align: center;
+	height: auto;
+}
+
+.modal-gallery-grid-container {
+	width: 100%;
+	height: 400px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 7px;
+	grid-row-gap: 13px;
+	margin-top: 45px;
+}
+
+.modal-gallery-grid-container img {
+	width: 76px;
+	height: 103px;
+}
+
+.modal-gallery-grid-container figure {
+	text-align: left;
+	position: relative;
+}
+
+.edit-button-modale {
+	padding: 0;
+	font-size: 12px;
+}
+
+.modal-gallery-grid-container figure:hover .enlarge-image-button-modale {
+	display: block;
+}
+
+.enlarge-image-button-modale {
+	display: none;
+	position: absolute;
+	top: 6px;
+	right: 33px;
+	z-index: 1;
+	background-color: #000000;
+	color: #FFFFFF;
+	border-radius: 2px;
+	height: 20px;
+	width: 18px;
+	padding: 0;
+}
+
+.trash-button-modale {
+	position: absolute;
+	top: 6px;
+	right: 12px;
+	z-index: 1;
+	background-color: #000000;
+	color: #FFFFFF;
+	border-radius: 2px;
+	height: 20px;
+	width: 18px;
+	padding: 0;
+}
+
+.trash-button-modale i,
+.enlarge-image-button-modale i {
+	font-size: 10px;
+	margin: 0;
+}
+
+h3 {
+	font-family: "Work sans";
+	font-size: 26px;
+	font-weight: 400;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #B3B3B3;
+    text-align: center;
+	width: 75%;
+	margin-top: 45px;
+}
+
+.add-photo-button,
+.valid-form {
+	background-color: #1D6154;
+	color: #FFFFFF;
+	border: solid 1px #1D6154;
+	border-radius: 19px;
+	font-family: "Syne";
+	font-weight: 700;
+	font-size: 14px;
+	height: 36px;
+	width: 237px;
+	padding: 0 20px 0 20px;
+	margin-top: 25px;
+}
+
+.delete-gallery-button {
+	color: #D65353;
+	background-color: #FFFFFF;
+}
+
+/* Définition de la "Modale", "ajout de projet" */
+
+.modal-form-container {
+	width: 72%;
+	height: auto;
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+.return-and-close-modal-button-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+/* Définition du FORM de la MODALE */
+
+.project-photo-file-add-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 169px;
+	background-color: #E8F1F6;
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 36px;
+}
+
+.project-photo-file-add-container img {
+	height: 100%;
+}
+
+.project-photo-file-add-icone {
+	font-size: 58px;
+	color: #B9C5CC;
+}
+
+.project-photo-file-add-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #CBD6DC;
+	color: #306685;
+	border-radius: 18px;
+	font-size: 14px;
+	font-weight: 500;
+	height: 36px;
+	width: 173px;
+	margin: 0;
+}
+
+#project-photo-file-add-input {
+	display: none;
+}
+
+.project-photo-file-add-description {
+	font-size: 10px;
+}
+
+form label {
+	text-align: left;
+}
+
+form hr {
+	width: 100%;
+	margin-bottom: 32px;
+}
+
+.valid-form {
+	margin: auto;
+	background-color: #A7A7A7;
+	border: none;
+}
+
+.valid-form:hover {
+	background-color: #1D6154;
+	color: #FFFEF8;
+}
+
+.valid-form:active {
+	background-color: #0E2F28;
+	color: #FFFEF8;
+}
+
+/* Définition du HEADER */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0
+}
+
+/* Définition du NAV */
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
-li:hover {
+
+li:hover,
+a:hover {
 	color: #B1663C;
 }
 
-nav li a{
-	text-decoration: none;
+/* Définitions de SECTION*/
+
+section {
+	margin: 50px 0
 }
 
-nav li a:visited{
-	color: black;
-}
+/* Définition de la SECTION "Introduction" */
 
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
-	flex: 1
+	flex: 1;
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
 	width: 80%;
 }
+
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
-#introduction p {
+
+#introduction article p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
+
+/* Ajout des boutons filtres des projets "category-filter" à la SECTION "Portfolio"*/
+
+.category-filter-section {
 	text-align: center;
-	/* margin-bottom: 1em; */
+	margin: 3em;
+	height: 37px;
 }
 
-#portfolio{
-	display: flex;
-	flex-direction: column;
-	gap: 60px;
+.category-filter-section button {
+	background-color: #FFFEF8;
+	color: #1D6154;
+	border: solid 1px #1D6154;
+	border-radius: 19px;
+	height: 100%;
+	font-family: "Syne";
+	font-weight: 700;
+	font-size: 16px;
+	padding: 0 20px 0 20px;
+	margin: 0 5px 0 5px;
 }
 
-.filters{
-	display: flex;
-	justify-content: center;
-	gap: 10px;	
-}
-.filters button:hover{
+.category-filter-section button:hover {
 	background-color: #1D6154;
-	color: white;
+	color: #FFFEF8;
 }
 
-button{ 
-	text-decoration: none;
-	background-color: #fffef8;
-	border-radius:25px  ;
-	border: 1px solid #1D6154; 
-	padding: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
-  }
+.category-filter-section button:active {
+	background-color: #0E2F28;
+	color: #FFFEF8;
+}
+
+input[type="submit"]:active {
+	background-color: #0E2F28;
+	color: #FFFEF8;
+}
 
 .gallery {
 	width: 100%;
@@ -165,39 +501,54 @@ button{
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
+
 .gallery img {
 	width: 100%;
 }
+
+/* Définition de la SECTION "Contact" avec reprises pour la page LOGIN.HTML*/
+
 #contact {
 	width: 50%;
 	margin: auto;
 }
-#contact > * {
+
+#contact > *,
+.login > * {
 	text-align: center;
 }
+
 #contact h2{
 	margin-bottom: 20px;
 }
-#contact form {
+
+#contact form,
+.login form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input, .log input {
+#contact input,
+.login input,
+.modal-content-form input, select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label, .log input {
+
+#contact label,
+.login label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
@@ -208,8 +559,45 @@ input[type="submit"]{
 	text-align: center;
 	border-radius: 60px ;
 }
+
+.modal-content-form label:not(.project-photo-file-add-button) {
+	margin: 30px 0 10px 0;
+}
+
+/* Définition de la SECTION / FORM de la page LOGIN.HTML */
+
+.login {
+	width: 50%;
+	margin: auto;
+}
+
+.login-link {
+	font-weight: 600;
+}
+
+form a {
+	margin: auto;
+}
+
+.wrong-user-notification {
+	margin: auto;
+	padding-top: 3em;
+	font-family: "Syne";
+	font-size: 20px;
+	font-weight: 600;
+}
+
+/* Définition du FOOTER */
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em 0 2em 0;
+}
+
+.footer-login-page {
+	position: fixed;
+	bottom: 0;
+	margin: auto;
+	width: 1140px;
 }
