@@ -1,150 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/16c256a34b.js" crossorigin="anonymous"></script>
-	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
-	<script type="module" src="gallerie.js"></script>
+    <meta charset="UTF-8">
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <meta name="description" content="">
+    <script src="https://kit.fontawesome.com/85b1fa215c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script type="module" src="./javascript/main.js" defer></script>
+    <script type="module" src="./javascript/modal.js" defer></script>
+
 </head>
+
 <body>
-	<!-- Switch editMode - Panel supérieur "editMode" utilisateur authentifié -->
-	<div class="authentified-userpanel edit-mode">
-		<i class="fa-regular fa-pen-to-square"></i>
-		<p>Mode édition</p>
-		<button class="button-post-changes open-modal-button">publier les changements</button>
-	</div>
+    <header>
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+        <nav>
+            <ul>
+                <li>projets</li>
+                <li><a href="#contact">contact</a></li>
+                <li><a href="./login.html" class="login-logout">login</a></li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="introduction">
+            <figure>
+                <img src="./assets/images/sophie-bluel.png" alt="">
+            </figure>
+            <article>
+                <h2>Designer d'espace</h2>
+                <p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
+                    finale du chantier.</p>
+                <p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
+                    couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+                    chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+                <p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
+                    décorateur(trice)</p>
+            </article>
+        </section>
 
-	<!-- MODALE "editMode" utilisateur authentifié -->
-	<!-- Conteneur de la modale -->
-	<div class="modal">
+        <section id="portfolio">
+            <h2>Mes Projets</h2>
+            <div class="modal-place"></div>
+            <div class="gallery">
 
-		<!-- Contenu de la modale "Gestion des projets avec suppression possible si authentifié" -->
-		<div class="modal-content">
-			<div class="close-modal-button-container">
-				<!-- Bouton pour fermer la modale -->
-				<button class="close-modal-button"><i class="fa-solid fa-xmark"></i></button>
-			</div>
-			<!-- Gallerie des projets éditables -->
-			<div class="modal-gallery-container">
-				<h3>Galerie photo</h3>
-				<div class="modal-gallery-grid-container">
-					<!-- FIGURE de la Gallerie de projets en "Mode Edition" injecté via "GALLERIE.JS" -->
-				</div>
-			</div>
-			<hr>
-			<button class="add-photo-button">Ajouter une photo</button>
-			<br>
-			<button class="delete-gallery-button">Supprimer la galerie</button>
-		</div>
-		<!-- ----------------- -->
+            </div>
+        </section>
 
-		<!-- Contenu de la modale "Ajout de projet" (Formulaire d'envoi des informations)-->
-		<div class="modal-content-form">
-			<div class="return-and-close-modal-button-container">
-				<!-- Bouton pour retourner sur la partie "GALLERIE / SUPRESSION DE PROJET" de la "MODALE"-->
-				<button class="return-modal-button"><i class="fa-solid fa-arrow-left-long"></i></button>
-				<!-- Bouton pour fermer la modale -->
-				<button class="close-modal-button"><i class="fa-solid fa-xmark"></i></button>
-			</div>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Vous avez un projet ? Discutons-en !</p>
+            <form action="#" method="post">
+                <label for="name">Nom</label>
+                <input type="text" name="name" id="name">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                <input type="submit" value="Envoyer">
+            </form>
+        </section>
+    </main>
 
-			<div class="modal-form-container">
-				<h3>Ajout photo</h3>
-				<!-- Formulaire "Ajout de projet"-->
-				<form>
-					<div class="project-photo-file-add-container">
-						<i class="fa-regular fa-image project-photo-file-add-icone"></i>
-						<label for="project-photo-file-add-input" class="project-photo-file-add-button">+ Ajouter photo</label>
-						<!-- <button class="project-photo-file-add-button">+ Ajouter photo</button> -->
-						<input type="file" name="project-photo-file-add-input" id="project-photo-file-add-input" required accept=".jpg, .png">
-						<p class="project-photo-file-add-description">jpg, png : 4mo max</p>
-					</div>
-					<label for="project-title">Titre</label>
-					<input type="text" name="project-title" id="project-title" required>
-					<label for="project-category">Catégorie</label>
-					<select name="project-category" id="project-category" required>
-						<option value=""></option>
-						<!-- Insertion des "Categories" via "MODALE.JS" -->
-					</select>
-					<hr>
-					<button class="valid-form">Valider</button>
-				</form>
-			</div>
-		</div>
-		<!-- ----------------- -->
-	</div>
-
-	<!-- FIN DE LA MODALE -------->
-
-<header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-	<nav>
-		<ul>
-			<li><a href="#portfolio">projets</a></li>
-			<li><a href="#contact">contact</a></li>
-			<li><a href="login.html">login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
-</header>
-<main>
-	<section id="introduction">
-		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="Photo portrait de Sophie Bluel">
-			<!-- Switch editMode -->
-			<div class="edit-mode-introduction-figure edit-mode">
-				<button><i class="fa-regular fa-pen-to-square"></i>modifier</button>
-			</div>
-			<!-- --------------- -->
-		</figure>
-		<article>
-			<button class="edit-mode"><i class="fa-regular fa-pen-to-square"></i>modifier</button>
-			<h2>Designer d'espace</h2>
-			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
-			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
-		</article>
-	</section>
-	<section id="portfolio">
-		<div class="edit-mode-portfolio-title">
-		<h2>Mes Projets</h2>
-		<!-- Switch editMode -->
-		<button class="edit-mode open-modal-button"><i class="fa-regular fa-pen-to-square"></i>modifier</button>
-		<!-- --------------- -->
-		</div>
-			<div class="category-filter-section">
-				<!-- Boutons filtres par catégories -->
-			</div>
-			<div class="gallery">
-				<!-- FIGURE des travaux récupérées dynamiquement à partir par GALLERIE.JS -->
-			</div>
-	</section>
-	<section id="contact">
-		<h2>Contact</h2>
-		<p>Vous avez un projet ? Discutons-en !</p>
-		<form action="#" method="post">
-			<label for="name">Nom</label>
-			<input type="text" name="name" id="name">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
-			<label for="message">Message</label>
-			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
-		</form>
-	</section>
-</main>
-
-<footer>
-	<nav>
-		<ul>
-			<li>Mentions Légales</li>
-		</ul>
-	</nav>
-</footer>
+    <footer>
+        <nav>
+            <ul>
+                <li>Mentions Légales</li>
+            </ul>
+        </nav>
+    </footer>
 </body>
+
 </html>
